@@ -26,7 +26,12 @@ Add the plugin directive to your app
 plugin :will_paginate
 ```
 
-On your views you can use the same method you would use on a Rails app ie. `<%= will_paginate @collection %>` to include pagination links.
+On your views you can use the same method you would use on a Rails app ie.
+
+```ruby
+<%= will_paginate @collection %>
+```
+to include pagination links.
 
 In case you would like to customize the generated links you need to implement a renderer.
 
