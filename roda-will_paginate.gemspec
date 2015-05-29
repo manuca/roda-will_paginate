@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["manuca@gmail.com"]
   spec.summary       = %q{Plugin to integrate Will Paginate with the Roda framework}
   spec.description   = spec.summary
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/manuca/roda-will_paginate"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_dependency "roda", "~> 2.3"
   spec.add_dependency "will_paginate", "~> 3.0"
 
   spec.add_development_dependency "bundler", "~> 1.7"
