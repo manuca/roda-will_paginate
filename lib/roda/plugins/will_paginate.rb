@@ -9,6 +9,11 @@ class Roda
 
         opts = app.opts[:will_paginate]
         opts[:renderer] ||= ::Roda::WillPaginate::LinkRenderer
+
+        if opts[:renderer].is_a?(Symbol)
+          c_name = "Roda::WillPaginate::#{opts[:renderer].to_s.capitalize}PaginationRenderer"
+          opts[:renderer] = const_get(c_name)
+        end
       end
 
       module InstanceMethods

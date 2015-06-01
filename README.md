@@ -35,7 +35,7 @@ to include pagination links.
 
 In case you would like to customize the generated links you need to implement a renderer.
 
-## Bootstrap Pagination Renderer:
+## Twitter Bootstrap Pagination:
 
 We include a customized renderer if you are working with Twitter bootstrap, just:
 
@@ -50,11 +50,24 @@ in you application and then specify the renderer to Will Paginate:
 
 ```
 
+or
+
+```
+<%= will_paginate @collection, renderer: :bootstrap %>
+
+```
+
 Alternative you can set it in the plugin configuration to avoid repeating it
 in each helper call:
 
 ```ruby
 plugin :will_paginate, renderer: Roda::WillPaginate::BootstrapPaginationRenderer
+```
+
+or
+
+```ruby
+plugin :will_paginate, renderer: :bootstrap
 ```
 
 ## Contributing
