@@ -50,6 +50,13 @@ in you application and then specify the renderer to Will Paginate:
 
 ```
 
+Alternative you can set it in the plugin configuration to avoid repeating it
+in each helper call:
+
+```ruby
+plugin :will_paginate, renderer: Roda::WillPaginate::BootstrapPaginationRenderer
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/manuca/roda-will_paginate/fork )
