@@ -31,6 +31,7 @@ On your views you can use the same method you would use on a Rails app ie.
 ```ruby
 <%= will_paginate @collection %>
 ```
+
 to include pagination links.
 
 In case you would like to customize the generated links you need to implement a renderer.
@@ -46,14 +47,14 @@ require 'roda/will_paginate/bootstrap_pagination_renderer'
 in you application and then specify the renderer to Will Paginate:
 
 ```
-<%= will_paginate @collection, renderer: Roda::WillPaginate::BootstrapPaginationRenderer %>
+<%= will_paginate @collection, renderer: :bootstrap %>
 
 ```
 
 or
 
 ```
-<%= will_paginate @collection, renderer: :bootstrap %>
+<%= will_paginate @collection, renderer: Roda::WillPaginate::BootstrapPaginationRenderer %>
 
 ```
 
@@ -61,13 +62,23 @@ Alternative you can set it in the plugin configuration to avoid repeating it
 in each helper call:
 
 ```ruby
-plugin :will_paginate, renderer: Roda::WillPaginate::BootstrapPaginationRenderer
+plugin :will_paginate, renderer: :bootstrap
 ```
 
 or
 
 ```ruby
-plugin :will_paginate, renderer: :bootstrap
+plugin :will_paginate, renderer: Roda::WillPaginate::BootstrapPaginationRenderer
+```
+
+## Custom renderers
+
+Please take a look at the [Will Paginate](https://github.com/mislav/will_paginate) docs to see how renderers work.
+
+If you have a custom renderer named Foo you can namespace it inside `Roda::WillPaginate::FooRenderer` and then use the symbol `:foo` to refer to it. For example:
+
+```ruby
+plugin :will_paginate, renderer: :foo
 ```
 
 ## Contributing
