@@ -1,4 +1,4 @@
-require 'will_paginate/view_helpers/link_renderer'
+require 'roda/will_paginate/link_renderer'
 
 class Roda
   module RodaPlugins
