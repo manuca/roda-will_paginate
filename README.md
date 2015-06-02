@@ -32,11 +32,21 @@ On your views you can use the same method you would use on a Rails app ie.
 <%= will_paginate @collection %>
 ```
 
-to include pagination links.
+to include pagination links. 
 
-In case you would like to customize the generated links you need to implement a renderer.
+Links generated for pagination will include a parameter `page=[page_no]` that will have to be handled correctly by your application when requesting different pages.
 
-## Twitter Bootstrap Pagination:
+## Making collections work with Will Paginate
+
+Please take into consideration that this plugin only takes care of generating the links to pages on your views, your paginated collections should comply with Will Paginate's requirements, these are defined  in https://github.com/mislav/will_paginate/blob/master/lib/will_paginate/collection.rb.
+
+The easiest way to implement this interface is implementing `current_page, per_page, offset, total_entries, total_pages` as methods of your collection and including `WillPaginate::CollectionMethods` in your collections as well.
+
+## Customizing pagination links
+
+In case you would like to customize the generated links you need to implement a renderer. Please take a look at Will Paginate's documentation to learn how to create your own renderers.
+
+## Alternative Twitter Bootstrap Pagination Theme:
 
 We include a customized renderer if you are working with Twitter bootstrap, just:
 
