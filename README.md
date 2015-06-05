@@ -38,9 +38,11 @@ Links generated for pagination will include a parameter `page=[page_no]` that wi
 
 ## Making collections work with Will Paginate
 
-Please take into consideration that this plugin only takes care of generating the links to pages on your views, your paginated collections should comply with Will Paginate's requirements, these are defined  in https://github.com/mislav/will_paginate/blob/master/lib/will_paginate/collection.rb.
+Please take into consideration that this plugin only takes care of generating the links to pages on your views, your paginated collections should comply with WillPaginate's requirements, these are defined in https://github.com/mislav/will_paginate/blob/master/lib/will_paginate/collection.rb.
 
-The easiest way to implement this interface is implementing `current_page, per_page, offset, total_entries, total_pages` as methods of your collection and including `WillPaginate::CollectionMethods` in your collections as well.
+If you are using Sequel with your Roda app, you can easily enable to appropriate functionality. You need to enable the Sequel pagination extension; `DB.extension(:pagination)` and require `will_paginate/sequel` in your app class.
+
+Otherwise, you will need to implement the interface yourself. Include `WillPaginate::CollectionMethods` and add `current_page`, `per_page`, `offset`, `total_entries`, `total_pages` as methods on your collection.
 
 ## Customizing pagination links
 
