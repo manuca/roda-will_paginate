@@ -23,12 +23,17 @@ class Roda
         if page
           tag(:li, link(text, page, :class => classname))
         else
-          tag(:li, link(text, '#', :class => classname + ' disabled'))
+          tag(:li, link(text, '#', :class => classname), class: 'disabled')
         end
       end
 
       def html_container(html)
         tag(:ul, html, container_attributes)
+      end
+
+      def gap
+        text = @template.will_paginate_translate(:page_gap) { '&hellip;' }
+        %(<li class="disabled"><a href="#" class="gap">#{text}</a></li>)
       end
     end
   end
